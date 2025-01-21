@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import CartProvider from "@/components/provider";
+import ShoppingCartModal from "@/components/shoppingcartmodal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <CartProvider>
+        <Navbar/>
+        <ShoppingCartModal/>
+        {children}
+        <Footer/>
+        </CartProvider>
+
+      </body>
     </html>
   );
 }
