@@ -1,5 +1,4 @@
  import AddToCart from '@/components/addtocart';
-import Checkout from '@/components/checkout';
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
@@ -102,16 +101,6 @@ export default async function ProductPage({ params }: Params) {
             </div>
             <div className="flex flex-wrap justify-center lg:justify-start gap-2.5">
               <AddToCart
-                currency="USD"
-                description={product.description}
-                image={product.image}
-                name={product.name}
-                price={product.price}
-                key={product._id}
-                price_id={product.price_id}
-              />
-
-              <Checkout
                 currency="USD"
                 description={product.description}
                 image={product.image}
